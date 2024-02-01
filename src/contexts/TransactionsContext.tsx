@@ -37,7 +37,7 @@ export function TransactionsProvider({ children }: Props) {
     let mounted = true
     async function loadTransactions() {
       const collection = models.transactions.getCollection(user.uid)
-      const repeatOnce = query(collection, where('repeat', '==', 'once'))
+      const repeatOnce = query(collection)
       const querySnapshot = await getDocs(repeatOnce)
       const transactions = querySnapshot.docs.map((doc) => {
         return doc.data()

@@ -1,0 +1,56 @@
+import { ReactElement } from 'react'
+import { GiAnimalHide, GiAnimalSkull } from 'react-icons/gi'
+import { IoIosCreate } from 'react-icons/io'
+import {
+  IoAirplane,
+  IoBag,
+  IoBalloon,
+  IoBaseball,
+  IoBasket,
+  IoBasketball,
+  IoBriefcase,
+  IoBus,
+  IoCar,
+  IoCard,
+  IoCart,
+  IoCash,
+  IoFastFood,
+  IoFilter,
+  IoFish,
+  IoFitness,
+  IoGameController,
+  IoHeadset,
+  IoHome,
+  IoList,
+  IoMedal,
+  IoPaw,
+  IoPhoneLandscape,
+  IoPlay,
+  IoRestaurant,
+  IoSchool,
+  IoSunny,
+  IoTrain,
+  IoWalk,
+} from 'react-icons/io5'
+
+export const iconMap: Record<string, ReactElement> = {
+  food: <IoRestaurant />,
+  bus: <IoBus />,
+  car: <IoCar />,
+  pet: <IoPaw />,
+  list: <IoList />,
+  cart: <IoCart />,
+  card: <IoCard />,
+  health: <IoFitness />,
+  school: <IoSchool />,
+  briefcase: <IoBriefcase />,
+  fastFood: <IoFastFood />,
+  game: <IoGameController />,
+  headset: <IoHeadset />,
+  house: <IoHome />,
+  airplane: <IoAirplane />,
+  sun: <IoSunny />,
+  cash: <IoCash />,
+}
+
+export const iconsNames = Object.keys(iconMap)

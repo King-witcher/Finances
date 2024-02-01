@@ -6,9 +6,9 @@ import { Folder } from '@/types/Folder'
 const converter = getConverter<Folder>()
 
 function getCollection(userId: string) {
-  return collection(firestore, `users/${userId}/folders`).withConverter(
+  return collection(firestore, `users/${userId}/categories`).withConverter(
     converter,
   )
 }
 
-export const folders = { getCollection }
+export const categories = { getCollection }

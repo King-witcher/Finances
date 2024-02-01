@@ -1,4 +1,4 @@
-import { folders } from './folders'
+import { categories } from './categories'
 import { transactions } from './transactions'
 
-export const models = { folders, transactions }
+export const models = { categories, transactions }

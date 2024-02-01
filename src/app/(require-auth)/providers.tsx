@@ -1,4 +1,4 @@
-import { FoldersProvider } from '@/contexts/FoldersContext'
+import { CategoriesProvider } from '@/contexts/CategoriesContext'
 import { TransactionsProvider } from '@/contexts/TransactionsContext'
 import { ReactNode } from 'react'
 
@@ -9,7 +9,7 @@ interface Props {
 export default function GuardedProviders({ children }: Props) {
   return (
     <TransactionsProvider>
-      <FoldersProvider>{children}</FoldersProvider>
+      <CategoriesProvider>{children}</CategoriesProvider>
     </TransactionsProvider>
   )
 }
