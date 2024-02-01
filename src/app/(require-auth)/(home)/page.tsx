@@ -23,16 +23,16 @@ import {
 import CreateCategoryModal from './components/CreateCategoryModal'
 
 export default function HomePage() {
-  const { categories: folders } = useCategories()
-  const [currentCategory, setCurrentCategory] = useState('')
+  const { categories } = useCategories()
+  const [currentCategory, setCurrentCategory] = useState<Folder | null>(null)
   const { onClose, onOpen, isOpen } = useDisclosure()
 
   const selectCategory = useCallback((category: Folder) => {
-    setCurrentCategory(category._id)
+    setCurrentCategory(category)
   }, [])
 
   return (
-    <Flex h="calc(100dvh - 44px)" w="full">
+    <Flex h="calc(100dvh - 44px)" w="full" userSelect="none">
       <Stack
         gap="0"
         userSelect="none"
@@ -42,26 +42,26 @@ export default function HomePage() {
         borderRight="1px solid rgb(230, 230, 234)"
       >
         <Box flex="1" p="10px">
-          {folders.map((folder) => {
-            const current = folder._id === currentCategory
+          {categories.map((category) => {
+            const current = category === currentCategory
 
             return (
               <Flex
-                key={folder._id}
+                key={category._id}
                 h="38px"
                 alignItems="center"
                 rounded="10px"
                 bg={current ? '#00c569' : undefined}
                 px="10px"
                 gap="10px"
-                onClick={() => setCurrentCategory(folder._id)}
+                onClick={() => setCurrentCategory(category)}
                 _hover={{
                   bg: current ? '#009952' : 'rgb(0, 0, 0, 0.04)',
                 }}
               >
                 <Center
                   borderRadius="999px"
-                  bgColor={`categories.${folder.color}`}
+                  bgColor={`categories.${category.color}`}
                   w="24px"
                   h="24px"
                   color="white"
@@ -69,9 +69,9 @@ export default function HomePage() {
                   fontSize="16px"
                   overflow="hidden"
                 >
-                  {iconMap[folder.icon]}
+                  {iconMap[category.icon]}
                 </Center>
-                <Text fontWeight={500}>{folder.title}</Text>
+                <Text fontWeight={500}>{category.title}</Text>
               </Flex>
             )
           })}
@@ -88,9 +88,29 @@ export default function HomePage() {
             onClick={onOpen}
           >
             <IoAddCircleOutline size="18px" />
-            <Text fontWeight={800}>Nova categoria</Text>
+            <Text fontWeight={700}>Nova categoria</Text>
           </Flex>
         </Flex>
+      </Stack>
+      <Stack as="main" flex="1">
+        <Flex pl="24px" pr="10px" h="50px" alignItems="center">
+          <Text
+            fontSize="2rem"
+            fontWeight={700}
+            color={`categories.${currentCategory?.color}`}
+            h="42px"
+          >
+            {currentCategory?.title}
+          </Text>
+        </Flex>
+        <Center
+          fontSize="1.1875rem"
+          flex="1"
+          fontWeight={700}
+          color="rgba(0,0,0,.48)"
+        >
+          Não implementado
+        </Center>
       </Stack>
       <CreateCategoryModal isOpen={isOpen} onClose={onClose} />
     </Flex>
