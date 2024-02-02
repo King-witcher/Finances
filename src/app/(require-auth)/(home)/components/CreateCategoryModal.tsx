@@ -143,7 +143,7 @@ export default function CreateCategoryModal(props: Props) {
                     h="32px"
                     fontSize="20px"
                     onClick={() => setSelectedIcon(iconName)}
-                    bg="#fbfbfd"
+                    bg={selected ? 'rgb(235, 235, 235)' : '#fbfbfd'}
                     color="#505050"
                     position="relative"
                     _before={
@@ -161,6 +161,9 @@ export default function CreateCategoryModal(props: Props) {
                           }
                         : undefined
                     }
+                    _hover={{
+                      bg: 'rgb(235, 235, 235)',
+                    }}
                   >
                     {iconMap[iconName]}
                   </Center>
