@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import GuardedProviders from './providers'
 import Header from '@/components/Header'
+import LoadingSession from '@/components/LoadingSession'
 
 export default function AuthGuardedLayout() {
   const { user, authState, signOut, getToken } = useAuth()
@@ -16,7 +17,7 @@ export default function AuthGuardedLayout() {
   }, [authState])
 
   if (authState !== AuthState.SignedIn) {
-    return 'Loading session'
+    return <LoadingSession />
   }
 
   return (

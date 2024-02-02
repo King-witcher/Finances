@@ -92,7 +92,7 @@ export default function Header() {
         overflow="hidden"
         rounded="12px"
         transformOrigin="top right"
-        animation={`${isOpen ? popoverAnimation : popoverClose} 200ms ease`}
+        animation={`${isOpen ? popoverAnimation : popoverClose} 250ms ease`}
         sx={{
           'animation-fill-mode': 'forwards',
         }}
