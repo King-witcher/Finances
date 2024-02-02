@@ -1,4 +1,4 @@
-import { Folder as Category } from '@/types/Folder'
+import { Category as Category } from '@/types/Category'
 import {
   Transaction,
   addDoc,

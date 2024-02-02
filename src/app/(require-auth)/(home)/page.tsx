@@ -1,6 +1,6 @@
 import { useCategories } from '@/contexts/CategoriesContext'
 import { iconMap } from '@/styles/icons'
-import { Folder } from '@/types/Folder'
+import { Category } from '@/types/Category'
 import { Box, Center, Flex, Stack, Text, useDisclosure } from '@chakra-ui/react'
 import { useCallback, useState } from 'react'
 import { IoAddCircleOutline } from 'react-icons/io5'
@@ -8,10 +8,10 @@ import CreateCategoryModal from './components/CreateCategoryModal'
 
 export default function HomePage() {
   const { categories } = useCategories()
-  const [currentCategory, setCurrentCategory] = useState<Folder | null>(null)
+  const [currentCategory, setCurrentCategory] = useState<Category | null>(null)
   const { onClose, onOpen, isOpen } = useDisclosure()
 
-  const selectCategory = useCallback((category: Folder) => {
+  const selectCategory = useCallback((category: Category) => {
     setCurrentCategory(category)
   }, [])
 

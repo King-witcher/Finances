@@ -1,7 +1,7 @@
 import { firestore } from '@/services/firestore'
 import { collection } from 'firebase/firestore'
 import { getConverter } from '../getConverter'
-import { Transaction } from '@/types/Transactoin'
+import { Transaction } from '@/types/Transaction'
 
 const converter = getConverter<Transaction>()
 

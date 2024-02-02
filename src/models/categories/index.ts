@@ -1,9 +1,9 @@
 import { firestore } from '@/services/firestore'
 import { collection } from 'firebase/firestore'
 import { getConverter } from '../getConverter'
-import { Folder } from '@/types/Folder'
+import { Category } from '@/types/Category'
 
-const converter = getConverter<Folder>()
+const converter = getConverter<Category>()
 
 function getCollection(userId: string) {
   return collection(firestore, `users/${userId}/categories`).withConverter(

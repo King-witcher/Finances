@@ -1,4 +1,4 @@
-import { Transaction } from '@/types/Transactoin'
+import { Transaction } from '@/types/Transaction'
 import {
   ReactNode,
   createContext,
