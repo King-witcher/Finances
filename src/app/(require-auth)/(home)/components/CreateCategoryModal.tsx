@@ -18,7 +18,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
-import { ChangeEvent, useCallback, useState } from 'react'
+import { ChangeEvent, lazy, useCallback, useEffect, useState } from 'react'
 
 interface Props extends Omit<ModalProps, 'children'> {}
 
@@ -27,6 +27,7 @@ export default function CreateCategoryModal(props: Props) {
   const [selectedColor, setSelectedColor] = useState('red')
   const [selectedIcon, setSelectedIcon] = useState('food')
   const [title, setTitle] = useState('Nova categoria')
+  const [titleDirty, setTitleDirty] = useState(false)
 
   const handleCreateCategory = useCallback(async () => {
     await createCategory({
@@ -38,7 +39,15 @@ export default function CreateCategoryModal(props: Props) {
     props.onClose()
   }, [selectedColor, selectedIcon, title])
 
+  useEffect(() => {
+    setSelectedColor('red')
+    setSelectedIcon('food')
+    setTitle('Nova categoria')
+    setTitleDirty(false)
+  }, [props.isOpen])
+
   const handleChangeTitle = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setTitleDirty(true)
     if (e.target.value.length <= 40) setTitle(e.target.value)
   }, [])
 
@@ -85,6 +94,7 @@ export default function CreateCategoryModal(props: Props) {
               rounded="8px"
               onChange={handleChangeTitle}
               transition="none"
+              onFocus={titleDirty ? undefined : (e) => e.target.select()}
               _hover={{
                 bg: 'rgba(0,0,0,.04)',
               }}
