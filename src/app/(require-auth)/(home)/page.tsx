@@ -1,25 +1,9 @@
 import { useCategories } from '@/contexts/CategoriesContext'
 import { iconMap } from '@/styles/icons'
 import { Folder } from '@/types/Folder'
-import {
-  Box,
-  Center,
-  Flex,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalOverlay,
-  Stack,
-  Text,
-  useDisclosure,
-} from '@chakra-ui/react'
+import { Box, Center, Flex, Stack, Text, useDisclosure } from '@chakra-ui/react'
 import { useCallback, useState } from 'react'
-import {
-  IoAdd,
-  IoAddCircleOutline,
-  IoFastFood,
-  IoFastFoodOutline,
-} from 'react-icons/io5'
+import { IoAddCircleOutline } from 'react-icons/io5'
 import CreateCategoryModal from './components/CreateCategoryModal'
 
 export default function HomePage() {
