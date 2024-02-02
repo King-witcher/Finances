@@ -52,11 +52,9 @@ export function AuthProvider({ children }: Props) {
     try {
       // states will be changed by onAuthStateChanged method
       await signInWithPopup(auth, provider)
-      setAuthState(AuthState.Loading)
     } catch (e) {
       console.error(e)
       if (import.meta.env.DEV) alert(e)
-    } finally {
       setAuthState(AuthState.NotSignedIn)
     }
   }, [])

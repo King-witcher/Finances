@@ -11,7 +11,6 @@ export default function AuthGuardedLayout() {
 
   useEffect(() => {
     const path = window.location.pathname
-    console.log(authState)
     if (authState === AuthState.NotSignedIn)
       navigate(path === '/' ? '/sign-in' : `/sign-in?referrer=${path}`)
   }, [authState])

@@ -62,9 +62,15 @@ export default function Header() {
         mx="4px"
         rounded="8px"
         ml="auto"
-        _hover={{
-          bg: 'rgba(0, 0, 0, 0.08)',
-        }}
+        _hover={
+          isOpen
+            ? undefined
+            : {
+                bg: 'rgba(0, 0, 0, 0.08)',
+              }
+        }
+        bg={isOpen ? 'rgba(0, 0, 0, 0.26)' : 'transparent'}
+        cursor="pointer"
       >
         <Avatar
           bg="white"
