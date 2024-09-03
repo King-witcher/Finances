@@ -29,7 +29,11 @@ type AuthData = {
 } & (
   | {
       user: null
-      authState: AuthState.NotSignedIn | AuthState.Loading
+      authState: AuthState.NotSignedIn
+    }
+  | {
+      user: null
+      authState: AuthState.Loading
     }
   | {
       user: User

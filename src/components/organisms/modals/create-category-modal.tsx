@@ -22,7 +22,7 @@ import { ChangeEvent, lazy, useCallback, useEffect, useState } from 'react'
 
 interface Props extends Omit<ModalProps, 'children'> {}
 
-export default function CreateCategoryModal(props: Props) {
+export function CreateCategoryModal(props: Props) {
   const { createCategory } = useCategories()
   const [selectedColor, setSelectedColor] = useState('red')
   const [selectedIcon, setSelectedIcon] = useState('food')

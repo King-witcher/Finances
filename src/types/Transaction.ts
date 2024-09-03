@@ -11,6 +11,8 @@ export type Transaction = WithId & {
       }
     | {
         repeat: 'many'
+        repeatId: string
+        index: number
         repeats: number
         frequency: 'daily' | 'weekly' | 'monthly'
       }

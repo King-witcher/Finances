@@ -36,7 +36,7 @@ const popoverClose = keyframes`
   }
 `
 
-export default function Header() {
+export function Topbar() {
   const { user, signOut } = useGuardedAuth()
   const { onClose, onOpen, onToggle, isOpen } = useDisclosure()
 

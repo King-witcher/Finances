@@ -53,7 +53,6 @@ export function CategoriesProvider({ children }: Props) {
       setCategories(folders)
       setLoading(false)
     }
-
     loadFolders()
 
     return () => {
