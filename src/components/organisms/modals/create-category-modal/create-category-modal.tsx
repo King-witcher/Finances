@@ -7,6 +7,7 @@ export function CreateCategoryModal(props: Props) {
   return (
     <Modal isCentered {...props} size="600px">
       <ModalOverlay />
+      {/* This is a separate component in order to reset all of it's states when the modal is unmounted. */}
       <Content {...props} />
     </Modal>
   )
