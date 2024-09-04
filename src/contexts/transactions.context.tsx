@@ -1,4 +1,3 @@
-import { Transaction } from '@/types/Transaction'
 import {
   ReactNode,
   createContext,
@@ -7,9 +6,10 @@ import {
   useEffect,
   useState,
 } from 'react'
-import { useGuardedAuth } from './GuardedAuthContext'
 import { models } from '@/models'
-import { getDocs, orderBy, query, where } from 'firebase/firestore'
+import { getDocs, query } from 'firebase/firestore'
+import { useGuardedAuth } from './guarded-auth.context'
+import { Transaction } from '@/types/transaction'
 
 // Transactions Context
 

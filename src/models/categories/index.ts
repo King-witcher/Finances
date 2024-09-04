@@ -1,7 +1,7 @@
 import { firestore } from '@/services/firestore'
 import { collection } from 'firebase/firestore'
-import { getConverter } from '../getConverter'
-import { Category } from '@/types/Category'
+import { getConverter } from '../get-converter'
+import { Category } from '@/types/category'
 
 const converter = getConverter<Category>()
 
@@ -10,5 +10,7 @@ function getCollection(userId: string) {
     converter,
   )
 }
+
+async function createCategory() {}
 
 export const categories = { getCollection }

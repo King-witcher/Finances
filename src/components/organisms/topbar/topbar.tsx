@@ -1,4 +1,4 @@
-import { useGuardedAuth } from '@/contexts/GuardedAuthContext'
+import { useGuardedAuth } from '@/contexts/guarded-auth.context'
 import {
   Avatar,
   Box,

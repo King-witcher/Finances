@@ -1,31 +1,38 @@
 import { CreateCategoryModal } from '@/components/organisms/modals'
-import { useGuardedAuth } from '@/contexts/GuardedAuthContext'
-import { Category } from '@/types/Category'
 import { categoriesQueryOptions } from '@/utils/query-options'
 import { Center, Flex, Stack, useDisclosure, Text } from '@chakra-ui/react'
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { Sidebar } from './sidebar'
+import { useGuardedAuth } from '@/contexts/guarded-auth.context'
 
 export function HomeTemplate() {
-  const [currentCategory, setCurrentCategory] = useState<Category | null>(null)
-  const { onClose, onOpen, isOpen } = useDisclosure()
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(
+    null,
+  )
   const { user } = useGuardedAuth()
 
   const categoriesQuery = useQuery(categoriesQueryOptions(user.uid))
 
+  const selectedCategory = categoriesQuery.data?.find(
+    (category) => category._id === selectedCategoryId,
+  )
+
   return (
     <Flex h="full" w="full" userSelect="none">
-      <Sidebar currentCategory={null} />
+      <Sidebar
+        selectedCategoryId={selectedCategoryId}
+        onChangeCategoryId={setSelectedCategoryId}
+      />
       <Stack as="main" flex="1">
         <Flex pl="24px" pr="10px" h="50px" alignItems="center">
           <Text
             fontSize="2rem"
             fontWeight={700}
-            color={`categories.${currentCategory?.color}`}
+            color={`categories.${selectedCategory?.color}`}
             h="42px"
           >
-            {currentCategory?.title}
+            {selectedCategory?.title}
           </Text>
         </Flex>
         <Center
@@ -37,7 +44,6 @@ export function HomeTemplate() {
           Não implementado
         </Center>
       </Stack>
-      <CreateCategoryModal isOpen={isOpen} onClose={onClose} />
     </Flex>
   )
 }

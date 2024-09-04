@@ -1,5 +1,5 @@
 import { LoadingSession } from '@/components/atoms'
-import { AuthState, useAuth } from '@/contexts/AuthContext'
+import { AuthState, useAuth } from '@/contexts/auth.context'
 import {
   Button,
   Flex,

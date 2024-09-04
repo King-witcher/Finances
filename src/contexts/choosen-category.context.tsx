@@ -1,4 +1,4 @@
-import { Category } from '@/types/Category'
+import { Category } from '@/types/category'
 import { ReactNode, createContext, useContext, useState } from 'react'
 
 // ChoosenCategory Context

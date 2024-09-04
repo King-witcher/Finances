@@ -1,7 +1,7 @@
 import { LoadingSession } from '@/components/atoms'
 import { Topbar } from '@/components/organisms'
-import { AuthState, useAuth } from '@/contexts/AuthContext'
-import { GuardedAuthProvider } from '@/contexts/GuardedAuthContext'
+import { AuthState, useAuth } from '@/contexts/auth.context'
+import { GuardedAuthProvider } from '@/contexts/guarded-auth.context'
 import { Box } from '@chakra-ui/react'
 import { createFileRoute, Navigate, Outlet } from '@tanstack/react-router'
 

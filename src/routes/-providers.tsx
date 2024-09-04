@@ -1,5 +1,5 @@
-import { AuthProvider } from '@/contexts/AuthContext'
-import { chakraTheme } from '@/styles/chakraTheme'
+import { AuthProvider } from '@/contexts/auth.context'
+import { chakraTheme } from '@/styles/chara-theme'
 import { ChakraProvider } from '@chakra-ui/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactNode } from 'react'

@@ -1,4 +1,4 @@
-import { WithId } from './WithId'
+import { WithId } from './with-id'
 
 export interface Category extends WithId {
   title: string

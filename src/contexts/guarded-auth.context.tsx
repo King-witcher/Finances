@@ -1,6 +1,6 @@
 import { User } from 'firebase/auth'
 import { ReactNode, createContext, useContext } from 'react'
-import { AuthState } from './AuthContext'
+import { AuthState } from './auth.context'
 
 // GuardedAuth Context
 

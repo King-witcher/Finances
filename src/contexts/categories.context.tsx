@@ -1,12 +1,4 @@
-import { Category as Category } from '@/types/Category'
-import {
-  Transaction,
-  addDoc,
-  doc,
-  query,
-  setDoc,
-  where,
-} from 'firebase/firestore'
+import { Transaction, addDoc, query } from 'firebase/firestore'
 import {
   ReactNode,
   createContext,
@@ -15,10 +7,11 @@ import {
   useEffect,
   useState,
 } from 'react'
-import { useTransactions } from './TransactionsContext'
 import { models } from '@/models'
-import { useGuardedAuth } from './GuardedAuthContext'
+import { useGuardedAuth } from './guarded-auth.context'
+import { useTransactions } from './transactions.context'
 import { getDocs } from '@/services/firestore'
+import { Category } from '@/types/category'
 
 // Categories Context
 

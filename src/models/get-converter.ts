@@ -4,8 +4,8 @@ import {
   QueryDocumentSnapshot,
   Timestamp,
 } from 'firebase/firestore'
-import { Firestorify } from './Firestorify'
-import { WithId } from '@/types/WithId'
+import { WithId } from '@/types/with-id'
+import { Firestorify } from './firestorify'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function convert(data: Record<string, any>) {

@@ -1,7 +1,6 @@
 import { CreateCategoryModal } from '@/components/organisms/modals'
-import { useGuardedAuth } from '@/contexts/GuardedAuthContext'
+import { useGuardedAuth } from '@/contexts/guarded-auth.context'
 import { iconMap } from '@/styles/icons'
-import { Category } from '@/types/Category'
 import { categoriesQueryOptions } from '@/utils/query-options'
 import { Box, Center, Flex, Stack, useDisclosure, Text } from '@chakra-ui/react'
 import { useQuery } from '@tanstack/react-query'
@@ -9,17 +8,18 @@ import { IoAddCircleOutline } from 'react-icons/io5'
 import { FadeLoader } from 'react-spinners'
 
 interface Props {
-  currentCategory: Category | null
+  selectedCategoryId: string | null
+  onChangeCategoryId: (id: string) => void
 }
 
-export function Sidebar({ currentCategory }: Props) {
+export function Sidebar({ selectedCategoryId, onChangeCategoryId }: Props) {
   const { user } = useGuardedAuth()
   const categoriesQuery = useQuery(categoriesQueryOptions(user.uid))
-  const modal = useDisclosure()
+  const modalState = useDisclosure()
 
   return (
     <Stack
-      gap="0"
+      spacing={0}
       userSelect="none"
       w="280px"
       h="full"
@@ -29,7 +29,7 @@ export function Sidebar({ currentCategory }: Props) {
       <Box flex="1" p="10px">
         {categoriesQuery.data ? (
           categoriesQuery.data.map((category) => {
-            const current = category === currentCategory
+            const current = category._id === selectedCategoryId
 
             return (
               <Flex
@@ -40,7 +40,7 @@ export function Sidebar({ currentCategory }: Props) {
                 bg={current ? '#00c569' : undefined}
                 px="10px"
                 gap="10px"
-                // onClick={() => setCurrentCategory(category)}
+                onClick={() => onChangeCategoryId(category._id)}
                 _hover={{
                   bg: current ? '#009952' : 'rgb(0, 0, 0, 0.04)',
                 }}
@@ -76,13 +76,16 @@ export function Sidebar({ currentCategory }: Props) {
           _hover={{
             color: '#00a156',
           }}
-          onClick={modal.onOpen}
+          onClick={modalState.onOpen}
         >
           <IoAddCircleOutline size="18px" />
           <Text fontWeight={700}>Nova categoria</Text>
         </Flex>
       </Flex>
-      <CreateCategoryModal isOpen={modal.isOpen} onClose={modal.onClose} />
+      <CreateCategoryModal
+        isOpen={modalState.isOpen}
+        onClose={modalState.onClose}
+      />
     </Stack>
   )
 }

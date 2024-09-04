@@ -1,5 +1,5 @@
 import { SignInTemplate } from '@/components/templates'
-import { AuthState, useAuth } from '@/contexts/AuthContext'
+import { AuthState, useAuth } from '@/contexts/auth.context'
 import { createFileRoute, Navigate } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/sign-in')({
